@@ -88,8 +88,7 @@ class WaypointUpdater(object):
 
         
         
-    def calc_stop_wp_map(self, tl):
-        #if (self.stop_wp_active == False): # we first see a red light so we calculate new map wp ("stop wp map")
+    def calc_stop_wp_map(self, tl): # set the velocities when we see a red light ahead
         tl_wp_idx = self.find_nearest_wp(tl.pose.position.x, tl.pose.position.y)
         if (tl_wp_idx < 0) or (tl_wp_idx < self.next_wp_idx):
             return False
@@ -107,9 +106,8 @@ class WaypointUpdater(object):
             if (v_next < 0.0):
                 v_next = 0.0
             self.velocity_map.append(v_next)
-        #else:                                # continue to follow the "stop wp map"
             
-         return True   
+        return True   
         
         
         
