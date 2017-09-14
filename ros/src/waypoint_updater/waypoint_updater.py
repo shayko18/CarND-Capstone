@@ -84,7 +84,7 @@ class WaypointUpdater(object):
         
 
     def waypoints_cb(self, waypoints):
-        self.map_wp = waypoints.waypoints;
+        self.map_wp = waypoints.waypoints
 
         
         
