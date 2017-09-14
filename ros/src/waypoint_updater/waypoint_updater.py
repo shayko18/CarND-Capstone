@@ -2,7 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import PoseStamped
-from styx_msgs.msg import Lane, Waypoint, TrafficLight_Vec
+from styx_msgs.msg import Lane, Waypoint, TrafficLight, TrafficLightArray
 
 import math
 
@@ -32,7 +32,7 @@ class WaypointUpdater(object):
 
         self.current_pose = rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb, queue_size=1)
         self.base_waypoints = rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb, queue_size=1)
-        self.traffic_waypoint = rospy.Subscriber('/traffic_waypoint', TrafficLight_Vec, self.traffic_cb, queue_size=1)
+        self.traffic_waypoint = rospy.Subscriber('/traffic_waypoint', TrafficLightArray, self.traffic_cb, queue_size=1)
 
         # TODO: Add a subscriber for /obstacle_waypoint below
 
